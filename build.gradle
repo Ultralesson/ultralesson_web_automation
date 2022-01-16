@@ -25,8 +25,7 @@ dependencies {
     implementation 'com.google.guava:guava:28.0-jre'
 
     // Selenium
-    implementation 'org.seleniumhq.selenium:selenium-ie-driver:4.1.1'
-    implementation 'org.seleniumhq.selenium:selenium-support:4.1.1'
+    implementation 'org.seleniumhq.selenium:selenium-java:4.1.1'
     implementation 'io.github.bonigarcia:webdrivermanager:5.0.3'
 
     // Use TestNG framework, also requires calling test.useTestNG() below

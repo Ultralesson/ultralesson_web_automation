@@ -1,5 +1,6 @@
 package com.ultralesson.training.web;
 
+import com.ultralesson.training.web.drivers.DriverCreator;
 import com.ultralesson.training.web.models.Item;
 import com.ultralesson.training.web.pages.HomePage;
 import com.ultralesson.training.web.pages.LauncherPage;
@@ -15,8 +16,9 @@ public class SearchTests {
         //Arrange
         String searchItem = "Jeans";
         String searchKey = "Jean";
-        WebDriver webDriver = null;
-        LauncherPage launcherPage = new LauncherPage(webDriver); // Assume webdriver is created and handy
+        String browser = "chrome";
+        WebDriver webDriver = new DriverCreator().create(browser);
+        LauncherPage launcherPage = new LauncherPage(webDriver);
         launcherPage.navigateTo("https://web-playground.ultralesson.com/");
 
         //Act
@@ -26,6 +28,6 @@ public class SearchTests {
 
         //Assert
         Assert.assertEquals(4, searchItems.size());
-        Assert.assertTrue(searchItems.stream().allMatch(item -> item.getName().contains("Jean")));
+        Assert.assertTrue(searchItems.stream().allMatch(item -> item.getName().contains(searchKey)));
     }
 }
