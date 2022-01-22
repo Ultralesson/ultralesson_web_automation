@@ -37,7 +37,14 @@ application {
     mainClassName = 'com.ultralesson.training.web.App'
 }
 
-test {
-    // Use TestNG for unit tests
-    useTestNG()
+task runWebTests(type: Test) {
+    outputs.upToDateWhen { false }
+    useTestNG {
+        useDefaultListeners true
+        outputDirectory = file("$buildDir/web-reports")
+    }
+}
+
+tasks.withType(Test) {
+    systemProperties System.properties
 }

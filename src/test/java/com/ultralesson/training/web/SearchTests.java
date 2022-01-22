@@ -17,7 +17,7 @@ public class SearchTests {
         String searchItem = "Jeans";
         String searchKey = "Jean";
         String browser = "chrome";
-        WebDriver webDriver = new DriverCreator().create(browser);
+        WebDriver webDriver = new DriverCreator().createDriverContext(browser).create();
         LauncherPage launcherPage = new LauncherPage(webDriver);
         launcherPage.navigateTo("https://web-playground.ultralesson.com/");
 
