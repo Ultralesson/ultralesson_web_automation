@@ -1,7 +1,7 @@
 package com.ultralesson.training.web;
 
 import com.ultralesson.training.web.drivers.DriverCreator;
-import com.ultralesson.training.web.models.Item;
+import com.ultralesson.training.web.models.Product;
 import com.ultralesson.training.web.pages.HomePage;
 import com.ultralesson.training.web.pages.LauncherPage;
 import org.openqa.selenium.WebDriver;
@@ -24,10 +24,10 @@ public class SearchTests {
         //Act
         HomePage homepage = new HomePage(webDriver);
         homepage.search(searchItem);
-        List<Item> searchItems = homepage.getSearchItems();
+        List<Product> searchProducts = homepage.getSearchItems();
 
         //Assert
-        Assert.assertEquals(4, searchItems.size());
-        Assert.assertTrue(searchItems.stream().allMatch(item -> item.getName().contains(searchKey)));
+        Assert.assertEquals(4, searchProducts.size());
+        Assert.assertTrue(searchProducts.stream().allMatch(product -> product.getName().contains(searchKey)));
     }
 }

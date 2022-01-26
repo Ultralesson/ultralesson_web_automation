@@ -14,12 +14,25 @@ public class PageActions {
         this.waits = new PageWaits(webDriver);
     }
 
-    public void click(By by) {
-        waits.waitForElementToBePresent(by).click();
+    public PageActions click(By by) {
+        waits.waitForElementToBeClickable(by).click();
+        return this;
     }
 
-    public void type(By by, String value) {
+    public PageActions click(WebElement element) {
+        waits.waitForElementToBeClickable(element).click();
+        return this;
+    }
+
+    public PageActions type(By by, String value) {
         waits.waitForElementToBePresent(by).sendKeys(value);
+        return this;
+    }
+
+
+    public PageActions clear(By by) {
+        waits.waitForElementToBePresent(by).clear();
+        return this;
     }
 
     public String getText(By by) {

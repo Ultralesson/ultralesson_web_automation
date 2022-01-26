@@ -25,12 +25,21 @@ public class PageWaits {
         return wait.until(ExpectedConditions.presenceOfElementLocated(by));
     }
 
+    public WebElement waitForElementToBeClickable(By by) {
+        return wait.until(ExpectedConditions.elementToBeClickable(by));
+    }
+
+    public WebElement waitForElementToBeClickable(WebElement element) {
+        return wait.until(ExpectedConditions.elementToBeClickable(element));
+    }
+
     private FluentWait<WebDriver> initWait(WebDriver webDriver) {
         return new FluentWait<>(webDriver)
                 .withTimeout(Duration.ofSeconds(30))
                 .pollingEvery(Duration.ofSeconds(5))
                 .ignoring(StaleElementReferenceException.class)
-                .ignoring(NoSuchElementException.class);
+                .ignoring(NoSuchElementException.class)
+                .ignoring(ElementClickInterceptedException.class);
     }
 
 }
