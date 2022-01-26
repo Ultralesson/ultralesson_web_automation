@@ -11,8 +11,8 @@ import java.util.Objects;
 
 public class DriverCreator {
 
-    public WebDriver create(String browser) {
-        browser = setDefaultBrowser(browser);
+    public WebDriver create() {
+        String browser = System.getProperty("browser", "chrome");
         switch (browser.toLowerCase()) {
             case "firefox":
                 return new FirefoxDriverManager().create();
@@ -25,8 +25,8 @@ public class DriverCreator {
     }
 
 
-    public WebDriverContext createDriverContext(String browser) {
-        browser = setDefaultBrowser(browser);
+    public WebDriverContext createDriverContext() {
+        String browser = System.getProperty("browser", "chrome");
         DriverManager<WebDriver> webDriverDriverManager = getBrowserManagers().get(browser);
         return new WebDriverContext(webDriverDriverManager);
     }
@@ -40,10 +40,4 @@ public class DriverCreator {
         return driverManagerMap;
     }
 
-    private String setDefaultBrowser(String browser) {
-        if(Objects.isNull(browser) || browser.isEmpty()) {
-            browser = "chrome";
-        }
-        return browser;
-    }
 }

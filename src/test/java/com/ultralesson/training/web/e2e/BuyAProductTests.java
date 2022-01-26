@@ -1,6 +1,6 @@
 package com.ultralesson.training.web.e2e;
 
-import com.ultralesson.training.web.drivers.DriverCreator;
+import com.ultralesson.training.web.BaseTest;
 import com.ultralesson.training.web.models.Cart;
 import com.ultralesson.training.web.models.Customer;
 import com.ultralesson.training.web.models.OrderDetails;
@@ -12,18 +12,17 @@ import org.testng.annotations.Test;
 
 import java.util.List;
 
-public class BuyAProductTests {
+public class BuyAProductTests extends BaseTest {
 
     @Test(groups = "wip")
     public void verifyThatFirstTimeUserIsAbleToBuyAProduct() {
        //Arrange
         Customer newCustomer = new Customer().init();
         Product productToBuy = new Product().init();
-        WebDriver driver = new DriverCreator().createDriverContext("chrome").create();
-        new LauncherPage(driver).navigateTo("https://web-playground.ultralesson.com/");
+        new LauncherPage(getDriver()).navigateTo("https://web-playground.ultralesson.com/");
 
         //Act
-        HomePage homePage = new HomePage(driver);
+        HomePage homePage = new HomePage(getDriver());
         ProductDetailsPage productDetailsPage = homePage.search(productToBuy.getSearchKeyword())
                 .selectProduct(productToBuy.getName());
 
@@ -53,11 +52,11 @@ public class BuyAProductTests {
 
         //Act
         cartPage.checkout();
-        CreateAccountPage createAccountPage = new LoginPage(driver).navigateToCreateAccountPage();
+        CreateAccountPage createAccountPage = new LoginPage(getDriver()).navigateToCreateAccountPage();
         createAccountPage.createAccount(newCustomer);
 
         // TODO: Complete the code from here as a challenge.
-        InformationPage informationPage = new InformationPage(driver);
+        InformationPage informationPage = new InformationPage(getDriver());
         informationPage.fillShippingAddress(newCustomer.getShippingAddress());
         Customer customerContactInformation = informationPage.getContactInformation();
         Cart cartDetailsInInformationPage = informationPage.getCartDetails();

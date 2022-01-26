@@ -1,5 +1,6 @@
 package com.ultralesson.training.web.pages;
 
+import com.ultralesson.training.web.internal.DriverStore;
 import org.openqa.selenium.WebDriver;
 
 public abstract class BasePage {

@@ -33,7 +33,7 @@ dependencies {
     implementation 'io.github.bonigarcia:webdrivermanager:5.0.3'
 
     // Use TestNG framework, also requires calling test.useTestNG() below
-    testImplementation 'org.testng:testng:6.14.3'
+    implementation 'org.testng:testng:6.14.3'
 
     //Faker
     implementation 'com.github.javafaker:javafaker:1.0.2'
@@ -63,6 +63,9 @@ application {
 task runWebTests(type: Test) {
     outputs.upToDateWhen { false }
     useTestNG {
+        parallel = "methods"
+        threadCount Integer.parseInt(System.getProperty("sessions", "2"))
+        includeGroups System.getProperty("tags", "web")
         excludeGroups "wip"
         useDefaultListeners true
         outputDirectory = file("$buildDir/web-reports")

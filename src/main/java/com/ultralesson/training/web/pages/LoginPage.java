@@ -1,4 +1,4 @@
-package com.ultralesson.training.web.e2e;
+package com.ultralesson.training.web.pages;
 
 import com.ultralesson.training.web.pages.BasePage;
 import com.ultralesson.training.web.pages.CreateAccountPage;
@@ -9,9 +9,10 @@ public class LoginPage extends BasePage {
 
   By createAccount = By.cssSelector("a[href='/account/register']");
 
-  public LoginPage(WebDriver driver) {
-    super(driver);
+  public LoginPage(WebDriver webDriver) {
+    super(webDriver);
   }
+
 
   public CreateAccountPage navigateToCreateAccountPage() {
     actions.click(createAccount);
