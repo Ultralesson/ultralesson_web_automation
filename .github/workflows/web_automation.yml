@@ -52,4 +52,4 @@ jobs:
         if: ${{ always() }}
         with:
           name: web_test
-          path: build/web-reports
+          path: allure-report/ui
