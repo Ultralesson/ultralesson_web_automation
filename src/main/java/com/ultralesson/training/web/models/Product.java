@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.assertj.core.api.Assertions;
 
 @Data @Builder(toBuilder = true)
 @NoArgsConstructor @AllArgsConstructor
@@ -25,6 +26,13 @@ public class Product {
                 .color("Sand Stone")
                 .quantity("1")
                 .build();
+    }
+
+
+    public void assertThatNameSizeColorAreSame(Product that) {
+        Assertions.assertThat(this.getName()).isEqualTo(that.getName());
+        Assertions.assertThat(this.getSize()).isEqualTo(that.getSize());
+        Assertions.assertThat(this.getColor()).isEqualTo(that.getColor());
     }
 }
 

@@ -36,7 +36,8 @@ dependencies {
     //Faker
     implementation 'com.github.javafaker:javafaker:1.0.2'
 
-
+    //AssertJ
+    implementation 'org.assertj:assertj-core:3.22.0'
 
     //lombok
     implementation('org.projectlombok:lombok:1.18.20')

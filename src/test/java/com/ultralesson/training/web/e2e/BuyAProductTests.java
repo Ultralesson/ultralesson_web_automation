@@ -37,9 +37,7 @@ public class BuyAProductTests {
 
 
         //Assert
-        Assert.assertEquals(productAddedToCart.getName(), productToBuy.getName());
-        Assert.assertEquals(productAddedToCart.getSize(), productToBuy.getSize());
-        Assert.assertEquals(productAddedToCart.getColor(), productToBuy.getColor());
+        productAddedToCart.assertThatNameSizeColorAreSame(productToBuy);
 
         //Act
         CartPage cartPage = cartQuickSummaryPage.viewMyCart();
