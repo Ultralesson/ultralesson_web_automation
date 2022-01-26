@@ -22,8 +22,9 @@ repositories {
 }
 
 dependencies {
-    // This dependency is used by the application.
+    // Google
     implementation 'com.google.guava:guava:28.0-jre'
+    implementation 'com.google.code.gson:gson:2.8.9'
 
     // Selenium
     implementation 'org.seleniumhq.selenium:selenium-java:4.1.1'
@@ -34,6 +35,8 @@ dependencies {
 
     //Faker
     implementation 'com.github.javafaker:javafaker:1.0.2'
+
+
 
     //lombok
     implementation('org.projectlombok:lombok:1.18.20')

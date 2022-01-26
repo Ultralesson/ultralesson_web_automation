@@ -1,0 +1,10 @@
+{
+  "customerWithActiveItemsInCart": {
+    "email": "abc@xyz.com",
+    "password": "abc1234"
+  },
+  "customerWithSpringSaleCoupon": {
+    "email": "def@ijk.com",
+    "password": "def1234"
+  }
+}
